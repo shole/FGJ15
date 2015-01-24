@@ -9,31 +9,49 @@ public class Grab : MonoBehaviour {
 		// GetComponentsInChildren<Rigidbody>
 	}
 	
+	void Pull() {
+		// Get All Transforms
+		var list = this.GetComponentsInParent<Rigidbody>();
+		
+		Rigidbody endObject = null;
+		Rigidbody beginObject = null;
+		
+		var i = 0;
+		
+		foreach(Rigidbody item in list) {
+			// Split (in armature the current tentacle hierarchy has bones splitted by '|'
+			// Ugly hax
+			var nameParts = item.name.Split('|');
+			
+			if(nameParts.Length >= 2) {
+				if(i == 0) {
+					endObject = item; // first bone
+				} else {
+					beginObject = item; // last bone
+				}
+				
+				i++;
+			}
+		}
+		
+		// Points hopefully defined! APPLY FORCE
+		if(endObject != null && beginObject != null) {
+			Vector3 direction = endObject.position - beginObject.position;
+			
+			beginObject.AddForce(direction * 100);
+		}
+	}
+	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("space")) {
 			rigidbody.isKinematic = !rigidbody.isKinematic;
 			Debug.Log("space pressed");
 		}
-
+		
 		if (Input.GetKey ("a")) {
-			//var list = this.GetComponentsInChildren<Transform>();
-			var list = this.GetComponentsInParent<Transform>();
-			foreach(Transform item in list) {
-				// Split
-				var nameParts = item.name.Split('|');
-
-				if(nameParts.Length >= 2) {
-					Debug.Log("rescale"+nameParts[1]);
-					//item.localScale = new Vector3(1.1f,1.1f,1.1f);
-					item.localScale = new Vector3(1.0f,0.5f,1.0f);
-					rigidbody.isKinematic = true;
-				}
-
-				Debug.Log("item"+nameParts[0]);
-
-			}
+			this.Pull();
 		}
-
+		
 	}
 }
