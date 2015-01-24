@@ -54,7 +54,6 @@ public class TouchInputReader : PhotonBehaviour {
             lastX = 0;
             lastY = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
 	}
 
     [RPC]

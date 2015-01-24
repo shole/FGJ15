@@ -2920,7 +2920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283174627
 Transform:
   m_ObjectHideFlags: 0
@@ -3538,7 +3538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &570554904
 Transform:
   m_ObjectHideFlags: 0
@@ -5250,7 +5250,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11422072, guid: 488db6317473d0c49b84c275f577ed1f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 488db6317473d0c49b84c275f577ed1f, type: 2}
   m_RootGameObject: {fileID: 363743002}
   m_IsPrefabParent: 0
@@ -7885,15 +7886,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 136328, guid: 393f48362d6dbb849825b694429abae2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 136332, guid: 393f48362d6dbb849825b694429abae2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 136340, guid: 393f48362d6dbb849825b694429abae2, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 436346, guid: 393f48362d6dbb849825b694429abae2, type: 2}
       propertyPath: m_LocalScale.x
@@ -9145,6 +9146,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1387570995}
   - 20: {fileID: 1387570994}
+  - 114: {fileID: 1387570996}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -9197,6 +9199,150 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2137609155}
   m_RootOrder: 2
+--- !u!114 &1387570996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1387570993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b39678ff6aa4fec8d135d231ba9cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  greenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  blueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  useDepthCorrection: 0
+  zCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthRedChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthGreenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthBlueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  saturation: 1
+  selectiveCc: 0
+  selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
+  selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
+  mode: 0
+  updateTextures: 1
+  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+    type: 3}
+  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+    type: 3}
+  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
+    type: 3}
 --- !u!1 &1446980857
 GameObject:
   m_ObjectHideFlags: 0
@@ -10846,7 +10992,6 @@ GameObject:
   - 20: {fileID: 1778544810}
   - 92: {fileID: 1778544809}
   - 124: {fileID: 1778544808}
-  - 114: {fileID: 1778544807}
   - 81: {fileID: 1778544806}
   m_Layer: 0
   m_Name: Main Camera
@@ -10875,18 +11020,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 926855085}
   m_GameObject: {fileID: 1778544804}
   m_Enabled: 1
---- !u!114 &1778544807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11422072, guid: 488db6317473d0c49b84c275f577ed1f,
-    type: 2}
-  m_PrefabInternal: {fileID: 926855085}
-  m_GameObject: {fileID: 1778544804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &1778544808
 Behaviour:
   m_ObjectHideFlags: 0
@@ -12518,7 +12651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2137609155
 Transform:
   m_ObjectHideFlags: 0

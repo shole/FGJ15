@@ -5,9 +5,10 @@ public class NetworkStartServer : MonoBehaviour {
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings("0.1");
+        roomName = System.Environment.UserName + "@" + System.Environment.MachineName;
     }
 
-    public const string roomName = "FJG_TEST";
+    private string roomName;
 
     void OnReceivedRoomListUpdate()
     {
