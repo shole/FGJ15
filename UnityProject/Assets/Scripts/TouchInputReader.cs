@@ -13,7 +13,6 @@ public class TouchInputReader : PhotonBehaviour {
 
     public float lastX, lastY;
     private Vector2 screenCenter = new Vector2();
-    private Vector2 tmp = new Vector2();
 	
 	// Update is called once per frame
 	void Update () {
