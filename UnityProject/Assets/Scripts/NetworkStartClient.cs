@@ -34,6 +34,7 @@ public class NetworkStartClient : MonoBehaviour {
         Debug.Log("Connected to Room");
         PhotonNetwork.Instantiate(inputPrefab.name, Vector3.zero,
                 Quaternion.identity, 0, new object[] { PhotonNetwork.player.ID });
+
         statusText.text = "connected";
 
     }

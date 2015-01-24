@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class CubeMover : MonoBehaviour {
-    private TouchInputReader input;
+    public TouchInputReader input;
+    public float forceModifier = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +12,7 @@ public class CubeMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if (input == null)
         {
             input = FindObjectOfType<TouchInputReader>();
@@ -20,8 +22,10 @@ public class CubeMover : MonoBehaviour {
             Debug.Log("couldn't find input");
             return;
         }
+         * */
 
         Debug.Log("translating.. " + input.lastY + ", " + input.lastX);
-        transform.Translate(input.lastX / 100f, 0, input.lastY/100f);
+        // transform.Translate(input.lastX / 100f, 0, input.lastY/100f);
+        rigidbody.AddForce(input.lastX * forceModifier, 0, input.lastY * forceModifier);
 	}
 }
