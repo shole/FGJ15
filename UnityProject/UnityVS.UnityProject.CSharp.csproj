@@ -130,10 +130,26 @@
     <Compile Include="Assets\ScriptsInput\PlayerInput.cs" />
     <Compile Include="Assets\ScriptsUI\AlwaysFaceGameplayOrigin.cs" />
     <Compile Include="Assets\ScriptsUI\PlayerDirectionWheelAnimate.cs" />
+    <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
+    <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\ArtEnvironment\water_ripples.shader" />
     <None Include="Assets\ProjectorUV\dist.shader" />
     <None Include="Assets\ProjectorUV\dist_shadowmask.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\Cubemaps.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\CustomLighting.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\LightCone.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\LightWrapping.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\MaterialPlatform.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\Parallax.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\Refraction.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\Tiles.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\Vegetation.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
+    <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
+    <None Include="Assets\ShaderForge\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
