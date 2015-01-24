@@ -316,6 +316,7 @@ GameObject:
   - 59: {fileID: 5946184}
   - 136: {fileID: 13646252}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11407036}
   m_Layer: 0
   m_Name: Armature|t11_L
   m_TagString: Untagged
@@ -1242,7 +1243,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1257,7 +1258,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2852,6 +2853,20 @@ MonoBehaviour:
   input: {fileID: 0}
   moveForceModifier: 80
   pullForceModifier: 100
+  playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
+    type: 2}
+--- !u!114 &11407036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891d9b31dde405d4f86dec4aa6f98a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: -1
 --- !u!135 &13546246
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2894,7 +2909,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146182}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d33f450282a3d9b48b895efa3f12f26e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
