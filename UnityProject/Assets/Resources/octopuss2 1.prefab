@@ -1255,7 +1255,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146184}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -1270,7 +1270,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146186}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -1794,10 +1794,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1824,10 +1824,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1854,10 +1854,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1884,10 +1884,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1914,10 +1914,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1944,10 +1944,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -1974,10 +1974,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2004,10 +2004,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2034,10 +2034,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2064,10 +2064,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2094,10 +2094,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2124,10 +2124,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2154,10 +2154,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2184,10 +2184,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2214,10 +2214,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2244,10 +2244,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2274,10 +2274,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2304,10 +2304,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2334,10 +2334,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2364,10 +2364,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2394,10 +2394,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2424,10 +2424,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2454,10 +2454,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2484,10 +2484,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2514,10 +2514,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2544,10 +2544,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2574,10 +2574,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2604,10 +2604,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2634,10 +2634,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2664,10 +2664,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2694,10 +2694,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2724,10 +2724,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2754,10 +2754,10 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: -35
+    max: 35
     minBounce: 0
     maxBounce: 0
   m_BreakForce: Infinity
@@ -2850,7 +2850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  forceModifier: 15
+  forceModifier: 80
 --- !u!135 &13546246
 SphereCollider:
   m_ObjectHideFlags: 1

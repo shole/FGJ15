@@ -9,7 +9,15 @@ public class CubeMover : MonoBehaviour {
 	void Update () {
         if (input.lastX != 0 || input.lastY != 0)
         {
-            rigidbody.AddForce(input.lastX * forceModifier, 0, input.lastY * forceModifier);
+            if (rigidbody.isKinematic)
+            {
+                // grabbing is on, and user is giving input, so cause a force
+            }
+            else
+            {
+                // just move the tentacle
+                rigidbody.AddForce(input.lastX * forceModifier, 0, input.lastY * forceModifier);
+            }
         }
         if (input.unhandledDoubleTap)
         {
