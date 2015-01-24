@@ -5250,7 +5250,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11422072, guid: 488db6317473d0c49b84c275f577ed1f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 488db6317473d0c49b84c275f577ed1f, type: 2}
   m_RootGameObject: {fileID: 363743002}
   m_IsPrefabParent: 0
@@ -10991,7 +10992,6 @@ GameObject:
   - 20: {fileID: 1778544810}
   - 92: {fileID: 1778544809}
   - 124: {fileID: 1778544808}
-  - 114: {fileID: 1778544807}
   - 81: {fileID: 1778544806}
   m_Layer: 0
   m_Name: Main Camera
@@ -11020,18 +11020,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 926855085}
   m_GameObject: {fileID: 1778544804}
   m_Enabled: 1
---- !u!114 &1778544807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11422072, guid: 488db6317473d0c49b84c275f577ed1f,
-    type: 2}
-  m_PrefabInternal: {fileID: 926855085}
-  m_GameObject: {fileID: 1778544804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &1778544808
 Behaviour:
   m_ObjectHideFlags: 0
