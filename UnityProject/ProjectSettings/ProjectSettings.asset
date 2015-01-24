@@ -14,13 +14,13 @@ PlayerSettings:
   productName: iDome demo
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  defaultScreenWidth: 3840
+  defaultScreenWidth: 3360
   defaultScreenHeight: 1080
   defaultScreenWidthWeb: 1280
   defaultScreenHeightWeb: 768
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  m_ActiveColorSpace: 0
+  m_ActiveColorSpace: 1
   m_MTRendering: 1
   m_MobileMTRendering: 0
   m_UseDX11: 1
@@ -35,8 +35,8 @@ PlayerSettings:
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
   use24BitDepthBuffer: 1
-  defaultIsFullScreen: 0
-  defaultIsNativeResolution: 0
+  defaultIsFullScreen: 1
+  defaultIsNativeResolution: 1
   runInBackground: 1
   captureSingleScreen: 0
   Override IPod Music: 0
