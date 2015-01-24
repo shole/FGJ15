@@ -70,13 +70,13 @@ public class TouchInputReader : PhotonBehaviour {
         {
             stream.SendNext(lastX);
             stream.SendNext(lastY);
-            Debug.Log("sent " + CoordsToString());
+            // Debug.Log("sent " + CoordsToString());
         }
         else
         {
             lastX = (float)stream.ReceiveNext();
             lastY = (float)stream.ReceiveNext();
-            Debug.Log("received" + CoordsToString());
+            // Debug.Log("received" + CoordsToString());
         }
     }
 

@@ -2850,7 +2850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  forceModifier: 80
+  moveForceModifier: 80
+  pullForceModifier: 100
 --- !u!135 &13546246
 SphereCollider:
   m_ObjectHideFlags: 1

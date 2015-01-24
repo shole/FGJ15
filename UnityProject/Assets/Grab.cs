@@ -5,7 +5,7 @@ public class Grab : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		HingeJoint hg = GetComponent<HingeJoint> ();
+		// HingeJoint hg = GetComponent<HingeJoint> ();
 		// GetComponentsInChildren<Rigidbody>
 	}
 	

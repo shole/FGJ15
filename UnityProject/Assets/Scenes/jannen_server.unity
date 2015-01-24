@@ -121,7 +121,6 @@ GameObject:
   - 20: {fileID: 49}
   - 92: {fileID: 70}
   - 124: {fileID: 79}
-  - 114: {fileID: 89}
   - 81: {fileID: 68}
   m_Layer: 0
   m_Name: Main Camera
@@ -1221,18 +1220,6 @@ MonoBehaviour:
   m_DrawTreesAndFoliage: 1
   m_CollectDetailPatches: 1
   m_MaterialTemplate: {fileID: 0}
---- !u!114 &89
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: ba2fccd9a9d0744e9a0756bf549d5da4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 8}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &106791725
 GameObject:
   m_ObjectHideFlags: 0
