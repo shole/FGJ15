@@ -46,14 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets\Camera Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\ActivateTrigger.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\CombineChildren.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\MeshCombineUtility.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatChannel.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatClient.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatDisconnectCause.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatEventCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatOperationCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatParameterCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatPeer.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatState.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatUserStatus.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\IChatClientListener.cs" />
      <None Include="Assets\ProjectorUV\dist_shadowmask.shader" />
      <None Include="Assets\ProjectorUV\dist.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Photon3Unity3D">
+ <HintPath>C:/projects/FGJ15/UnityProject/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
