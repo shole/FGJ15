@@ -104,6 +104,8 @@
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+     <Compile Include="Assets\ScriptUtility\testspincamera.cs" />
+     <Compile Include="Assets\Scripts\CubeMover.cs" />
      <Compile Include="Assets\Scripts\NetworkStartClient.cs" />
      <Compile Include="Assets\Scripts\NetworkStartServer.cs" />
      <Compile Include="Assets\Scripts\PhotonBehaviour.cs" />
@@ -111,7 +113,6 @@
      <Compile Include="Assets\ScriptsInput\PlayerInput.cs" />
      <Compile Include="Assets\ScriptsUI\AlwaysFaceGameplayOrigin.cs" />
      <Compile Include="Assets\ScriptsUI\PlayerDirectionWheelAnimate.cs" />
-     <Compile Include="Assets\testspincamera.cs" />
      <None Include="Assets\ProjectorUV\dist_shadowmask.shader" />
      <None Include="Assets\ProjectorUV\dist.shader" />
  <Reference Include="UnityEngine.UI">
