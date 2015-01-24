@@ -39,13 +39,14 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Grab.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
@@ -104,11 +105,10 @@
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Imports\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\ScriptUtility\testspincamera.cs" />
-     <Compile Include="Assets\Scripts\CubeMover.cs" />
      <Compile Include="Assets\Scripts\NetworkStartClient.cs" />
      <Compile Include="Assets\Scripts\NetworkStartServer.cs" />
      <Compile Include="Assets\Scripts\PhotonBehaviour.cs" />
+     <Compile Include="Assets\Scripts\TouchInputReader.cs" />
      <Compile Include="Assets\Scripts\TouchInputReader.cs" />
      <Compile Include="Assets\ScriptsInput\PlayerInput.cs" />
      <Compile Include="Assets\ScriptsUI\AlwaysFaceGameplayOrigin.cs" />
@@ -132,10 +132,27 @@
      <None Include="Assets\ShaderForge\Example Assets\Shaders\Tiles.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\CustomLighting.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/projects/FGJ15/UnityProject/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/Jukka/Documents/Github/FGJ15/UnityProject/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{FDE690F1-626F-FFA0-5754-E83120972A79}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
+
  </Reference>
   </ItemGroup>
   <ItemGroup>
