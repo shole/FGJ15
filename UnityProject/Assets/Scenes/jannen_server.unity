@@ -1233,13 +1233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 2
-  sensitivityX: 3
-  sensitivityY: 3
-  minimumX: -360
-  maximumX: 360
-  minimumY: -20
-  maximumY: 20
 --- !u!1 &111841876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,6 +2778,7 @@ GameObject:
   - 65: {fileID: 1731948687}
   - 23: {fileID: 1731948686}
   - 54: {fileID: 1731948685}
+  - 114: {fileID: 1731948689}
   m_Layer: 0
   m_Name: grabbee
   m_TagString: Untagged
@@ -2859,6 +2853,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1731948683}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1731948689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731948683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b9344c0772dca4b939ae433131d5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840008281
 GameObject:
   m_ObjectHideFlags: 0
