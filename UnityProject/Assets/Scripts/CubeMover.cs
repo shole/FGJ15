@@ -3,29 +3,18 @@ using System.Collections;
 
 public class CubeMover : MonoBehaviour {
     public TouchInputReader input;
-    public float forceModifier = 1f;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public float forceModifier = 15f;
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-        if (input == null)
+        if (input.lastX != 0 || input.lastY != 0)
         {
-            input = FindObjectOfType<TouchInputReader>();
+            rigidbody.AddForce(input.lastX * forceModifier, 0, input.lastY * forceModifier);
         }
-        if (input == null)
+        if (input.unhandledDoubleTap)
         {
-            Debug.Log("couldn't find input");
-            return;
+            input.unhandledDoubleTap = false;
+            rigidbody.isKinematic = !rigidbody.isKinematic;
         }
-         * */
-
-        Debug.Log("translating.. " + input.lastY + ", " + input.lastX);
-        // transform.Translate(input.lastX / 100f, 0, input.lastY/100f);
-        rigidbody.AddForce(input.lastX * forceModifier, 0, input.lastY * forceModifier);
 	}
 }

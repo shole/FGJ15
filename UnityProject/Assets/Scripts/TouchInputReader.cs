@@ -12,7 +12,11 @@ public class TouchInputReader : PhotonBehaviour {
 	}
 
     public float lastX, lastY;
+    public bool unhandledDoubleTap = false;
     private Vector2 screenCenter = new Vector2();
+
+    private float doubleTapCooldownSecs = 0.5f;
+    private float doubleTapCDCounter = 0;
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,13 +25,19 @@ public class TouchInputReader : PhotonBehaviour {
             return;
         }
 
+        doubleTapCDCounter += Time.deltaTime;
+
         if (Input.touchCount > 0)
         {
             Touch t = Input.GetTouch(0);
             
             if (t.tapCount > 1)
             {
-                RPC(DoubleTap, PhotonTargets.MasterClient);
+                if (doubleTapCDCounter > doubleTapCooldownSecs)
+                {
+                    RPC(DoubleTap, PhotonTargets.MasterClient);
+                    doubleTapCDCounter = 0;
+                }
             }
             else
             {
@@ -51,6 +61,7 @@ public class TouchInputReader : PhotonBehaviour {
     public void DoubleTap()
     {
         Debug.Log("doubletapped!");
+        unhandledDoubleTap = true;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
