@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ScriptsUI\AlwaysFaceGameplayOrigin.cs" />
      <Compile Include="Assets\testspincamera.cs" />
      <None Include="Assets\ProjectorUV\dist_shadowmask.shader" />
      <None Include="Assets\ProjectorUV\dist.shader" />

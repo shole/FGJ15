@@ -63,6 +63,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ScriptsUI\AlwaysFaceGameplayOrigin.cs" />
     <Compile Include="Assets\testspincamera.cs" />
   </ItemGroup>
   <ItemGroup>
