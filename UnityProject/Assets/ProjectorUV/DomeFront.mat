@@ -38,7 +38,7 @@ Material:
         first:
           name: _Shadowmask
         second:
-          m_Texture: {fileID: 2800000, guid: 77673a9cf25a53945866c7717783d344, type: 3}
+          m_Texture: {fileID: 2800000, guid: e4dacebfa03825a4b805abbcb091755f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: -.0500000007}
       data:

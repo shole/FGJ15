@@ -91,9 +91,10 @@ GameObject:
   - 4: {fileID: 446182}
   - 54: {fileID: 5446182}
   - 135: {fileID: 13546252}
+  - 114: {fileID: 11480166}
   m_Layer: 0
   m_Name: Armature|Base
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2855,6 +2856,8 @@ MonoBehaviour:
   pullForceModifier: 1200
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
+  grabbedColor: {r: 0, g: 1, b: 0, a: 1}
+  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2871,6 +2874,22 @@ MonoBehaviour:
   pullForceModifier: 1200
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
+  grabbedColor: {r: 0, g: 1, b: 0, a: 1}
+  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &11480166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45795e320cbd5de4a89401a7bab146b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elevatorSpeed: .00999999978
+  liftHeight: 10
+  isBeingHumiliated: 0
 --- !u!135 &13546246
 SphereCollider:
   m_ObjectHideFlags: 1
