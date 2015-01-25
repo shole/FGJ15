@@ -11,20 +11,34 @@ public class CubeMover : MonoBehaviour {
     Transform playerDirection;
     Transform reachTarget;
 
-    void Start()
+    void Awake()
     {
         playerIndicator = (GameObject)Instantiate(playerIndicatorPrefab);
         playerIndicator.transform.parent = transform;
         playerIndicator.transform.localPosition = Vector3.zero;
         playerDirection = playerIndicator.transform.FindChild("DirectionWheel");
+    }
+
+    public void SetInput(TouchInputReader reader)
+    {
+        input = reader;
         reachTarget = playerDirection.FindChild("ReachTarget");
         Debug.Log("playerid " + input.photonView.owner.ID);
         playerIndicator.transform.FindChild("playerno").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
         playerIndicator.transform.FindChild("playernoshadow").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
     }
 
+    public bool HasInput()
+    {
+        return input != null;
+    }
+
 	// Update is called once per frame
 	void Update () {
+        if (input == null)
+        {
+            return;
+        }
         if (input.lastX != 0 || input.lastY != 0)
         {
 

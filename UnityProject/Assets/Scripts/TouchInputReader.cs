@@ -8,7 +8,10 @@ public class TouchInputReader : PhotonBehaviour {
 	void Start () {
         screenCenter.Set(Screen.width, Screen.height);
         screenCenter /= 2f;
-        FindObjectOfType<Text>().text = "starting..";
+        if (photonView.isMine)
+        {
+            FindObjectOfType<Text>().text = "starting..";
+        }
 	}
 
     public float lastX, lastY;
