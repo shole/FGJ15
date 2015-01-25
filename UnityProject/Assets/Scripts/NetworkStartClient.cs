@@ -65,4 +65,9 @@ public class NetworkStartClient : MonoBehaviour {
 
         statusText.text = "connected";
     }
+
+    void OnMasterClientSwitched()
+    {
+        Application.Quit();
+    }
 }
