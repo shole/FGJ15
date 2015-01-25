@@ -30,9 +30,11 @@ public class TouchInputReader : PhotonBehaviour {
 
         doubleTapCDCounter += Time.deltaTime;
 
-        if (Input.touchCount > 0)
+
+
+        for(int i=0; i < Input.touchCount; i++)
         {
-            Touch t = Input.GetTouch(0);
+            Touch t = Input.GetTouch(i);
             
             if (t.tapCount > 1)
             {
@@ -48,11 +50,11 @@ public class TouchInputReader : PhotonBehaviour {
                 lastX = (t.position.x - screenCenter.x) / screenCenter.x;
                 lastY = (t.position.y - screenCenter.y) / screenCenter.y;
 
-                Debug.Log("read " + CoordsToString());
+                // Debug.Log("read " + CoordsToString());
                 FindObjectOfType<Text>().text = CoordsToString();
             }
         }
-        else
+        if (Input.touchCount == 0)
         {
             lastX = 0;
             lastY = 0;
