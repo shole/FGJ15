@@ -13,7 +13,17 @@ public class CubeMover : MonoBehaviour {
     TextMesh textMesh;
 
     public Color grabbedColor = Color.green;
-    public Color nonGrabbedColor = Color.white;
+    public Color releasedColor = Color.white;
+
+    Rigidbody endObject = null;
+    Rigidbody beginObject = null;
+
+    public float maxTentacleStretch = 1.5f;
+    public float maxTentacleDrift = 1f;
+
+    private float normalTentacleLength;
+
+    private Vector3 grabbingPos;
 
     void Awake()
     {
@@ -23,6 +33,8 @@ public class CubeMover : MonoBehaviour {
         playerDirection = playerIndicator.transform.FindChild("DirectionWheel");
         textMesh = playerIndicator.transform.FindChild("playerno").GetComponent<TextMesh>();
         UpdateNumberColor();
+        normalTentacleLength = GetTentacleLength();
+        Debug.Log("tentacle is " + normalTentacleLength);
     }
 
     public void SetInput(TouchInputReader reader)
@@ -32,8 +44,6 @@ public class CubeMover : MonoBehaviour {
         Debug.Log("playerid " + input.photonView.owner.ID);
         playerIndicator.transform.FindChild("playerno").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
         playerIndicator.transform.FindChild("playernoshadow").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
-
-        
     }
 
     public bool HasInput()
@@ -43,80 +53,143 @@ public class CubeMover : MonoBehaviour {
 
     private void UpdateNumberColor()
     {
-        if (rigidbody.isKinematic)
+        if (IsGrabbed())
         {
             textMesh.color = grabbedColor;
         }
         else
         {
-            textMesh.color = nonGrabbedColor;
+            textMesh.color = releasedColor;
         }
     }
 
 	// Update is called once per frame
 	void Update () {
+        HandleAutomaticRelease();
+        HandleInput();
+	}
+
+    private void HandleAutomaticRelease()
+    {
+        if (!IsGrabbed())
+        {
+            return;
+        }
+
+        // if tentacle has stretched too long, release grab
+        float currentLength = GetTentacleLength();
+        if (currentLength > normalTentacleLength * maxTentacleStretch)
+        {
+            Grab(false);
+            Debug.Log("stretched too long, releasing grab");
+            return;
+        }
+
+        // if tentacle has moved too far from the original grabbing pos, release grab
+        float driftAmount = (transform.position - grabbingPos).magnitude;
+        if (driftAmount > normalTentacleLength * maxTentacleDrift)
+        {
+            Debug.Log("drifted too far, releasing grab");
+            Grab(false);
+        }
+    }
+
+    private void Grab(bool status)
+    {
+        rigidbody.isKinematic = status;
+        UpdateNumberColor();
+
+        if (status)
+        {
+            grabbingPos = transform.position;
+        }
+    }
+
+    private bool IsGrabbed()
+    {
+        return rigidbody.isKinematic;
+    }
+
+    private void HandleInput()
+    {
         if (input == null)
         {
             return;
         }
-        if (input.lastX != 0 || input.lastY != 0)
+
+        if (input.lastX == 0 && input.lastY == 0)
         {
+            return;
+        }
+        playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
 
-            playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
+        if (IsGrabbed())
+        {
+            // grabbing is on, and user is giving input, so cause a force
 
-            if (rigidbody.isKinematic)
+            // Points hopefully defined! APPLY FORCE
+            if (FetchStartAndEndParts())
             {
-                // grabbing is on, and user is giving input, so cause a force
-                var list = this.GetComponentsInParent<Rigidbody>();
+                Vector3 direction = endObject.position - beginObject.position;
 
-                Rigidbody endObject = null;
-                Rigidbody beginObject = null;
-
-                var i = 0;
-
-                foreach (Rigidbody item in list)
-                {
-                    // Split (in armature the current tentacle hierarchy has bones splitted by '|'
-                    // Ugly hax
-                    var nameParts = item.name.Split('|');
-
-                    if (nameParts.Length >= 2)
-                    {
-                        if (i == 0)
-                        {
-                            endObject = item; // first bone
-                        }
-                        else
-                        {
-                            beginObject = item; // last bone
-                        }
-
-                        i++;
-                    }
-                }
-
-                // Points hopefully defined! APPLY FORCE
-                if (endObject != null && beginObject != null)
-                {
-                    Vector3 direction = endObject.position - beginObject.position;
-                    
-                    beginObject.AddForce(direction * pullForceModifier);
-                }
-            }
-            else
-            {
-                // just move the tentacle
-
-                rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier);
-                //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
+                beginObject.AddForce(direction * pullForceModifier);
             }
         }
+        else
+        {
+            // just move the tentacle
+
+            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier);
+            //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
+        }
+
         if (input.unhandledDoubleTap)
         {
             input.unhandledDoubleTap = false;
-            rigidbody.isKinematic = !rigidbody.isKinematic;
-
-            UpdateNumberColor();
+            Grab(!IsGrabbed());
         }
-	}
+    }
+
+    private bool FetchStartAndEndParts()
+    {
+        var list = this.GetComponentsInParent<Rigidbody>();
+
+        endObject = null;
+        beginObject = null;
+
+        var i = 0;
+
+        foreach (Rigidbody item in list)
+        {
+            // Split (in armature the current tentacle hierarchy has bones splitted by '|'
+            // Ugly hax
+            var nameParts = item.name.Split('|');
+
+            if (nameParts.Length >= 2)
+            {
+                if (i == 0)
+                {
+                    endObject = item; // first bone
+                }
+                else
+                {
+                    beginObject = item; // last bone
+                }
+
+                i++;
+            }
+        }
+
+        return endObject != null && beginObject != null;
+    }
+
+    private float GetTentacleLength()
+    {
+        if (!FetchStartAndEndParts())
+        {
+            return float.NaN;
+        }
+
+        return (endObject.position - beginObject.position).magnitude;
+    }
 }
