@@ -10,6 +10,10 @@ public class CubeMover : MonoBehaviour {
     GameObject playerIndicator;
     Transform playerDirection;
     Transform reachTarget;
+    TextMesh textMesh;
+
+    public Color grabbedColor = Color.green;
+    public Color nonGrabbedColor = Color.white;
 
     void Awake()
     {
@@ -17,6 +21,8 @@ public class CubeMover : MonoBehaviour {
         playerIndicator.transform.parent = transform;
         playerIndicator.transform.localPosition = Vector3.zero;
         playerDirection = playerIndicator.transform.FindChild("DirectionWheel");
+        textMesh = playerIndicator.transform.FindChild("playerno").GetComponent<TextMesh>();
+        UpdateNumberColor();
     }
 
     public void SetInput(TouchInputReader reader)
@@ -26,11 +32,25 @@ public class CubeMover : MonoBehaviour {
         Debug.Log("playerid " + input.photonView.owner.ID);
         playerIndicator.transform.FindChild("playerno").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
         playerIndicator.transform.FindChild("playernoshadow").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
+
+        
     }
 
     public bool HasInput()
     {
         return input != null;
+    }
+
+    private void UpdateNumberColor()
+    {
+        if (rigidbody.isKinematic)
+        {
+            textMesh.color = grabbedColor;
+        }
+        else
+        {
+            textMesh.color = nonGrabbedColor;
+        }
     }
 
 	// Update is called once per frame
@@ -95,6 +115,8 @@ public class CubeMover : MonoBehaviour {
         {
             input.unhandledDoubleTap = false;
             rigidbody.isKinematic = !rigidbody.isKinematic;
+
+            UpdateNumberColor();
         }
 	}
 }
