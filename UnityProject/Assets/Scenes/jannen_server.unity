@@ -959,7 +959,6 @@ GameObject:
   - 4: {fileID: 283174627}
   - 20: {fileID: 283174628}
   - 114: {fileID: 283174629}
-  - 114: {fileID: 283174630}
   m_Layer: 0
   m_Name: 'Camera: fisheye'
   m_TagString: MainCamera
@@ -1156,30 +1155,6 @@ MonoBehaviour:
     type: 3}
   colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
     type: 3}
---- !u!114 &283174630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 283174626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd05e71c69dd4457fa205c9eea7c2326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 4
-  adaptiveTextureSize: 256
-  remapCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  exposureAdjustment: 3
-  middleGrey: .400000006
-  white: 2
-  adaptionSpeed: 1.5
-  tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
-  validRenderTextureFormat: 1
 --- !u!1 &287715484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,22 +2180,142 @@ MonoBehaviour:
   m_GameObject: {fileID: 570554903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd05e71c69dd4457fa205c9eea7c2326, type: 3}
+  m_Script: {fileID: 11500000, guid: 83b39678ff6aa4fec8d135d231ba9cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 6
-  adaptiveTextureSize: 256
-  remapCurve:
+  redChannel:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  exposureAdjustment: 3
-  middleGrey: .400000006
-  white: 2
-  adaptionSpeed: 1.5
-  tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
-  validRenderTextureFormat: 1
+  greenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  blueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00624999963
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+    - time: .258957714
+      value: .476226777
+      inSlope: .561994851
+      outSlope: .561994851
+      tangentMode: 0
+    - time: 1
+      value: 1.00625002
+      inSlope: 1.62857211
+      outSlope: 1.62857211
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  useDepthCorrection: 0
+  zCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthRedChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthGreenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthBlueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  saturation: 1
+  selectiveCc: 0
+  selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
+  selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
+  mode: 0
+  updateTextures: 1
+  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+    type: 3}
+  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+    type: 3}
+  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
+    type: 3}
 --- !u!1 &618414141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,7 +3760,9 @@ MonoBehaviour:
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
-  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
+  releasedColor: {r: 1, g: 1, b: 1, a: 1}
+  maxTentacleStretch: 1.5
+  maxTentacleDrift: 1
 --- !u!136 &697065829
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13079,7 +13176,9 @@ MonoBehaviour:
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
-  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
+  releasedColor: {r: 1, g: 1, b: 1, a: 1}
+  maxTentacleStretch: 1.5
+  maxTentacleDrift: 1
 --- !u!136 &2098841322
 CapsuleCollider:
   m_ObjectHideFlags: 0
