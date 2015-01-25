@@ -2852,12 +2852,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  moveForceModifier: 100
-  pullForceModifier: 1200
+  moveForceModifier: 25
+  pullForceModifier: 600
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
-  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
+  releasedColor: {r: 1, g: 1, b: 1, a: 1}
+  maxTentacleStretch: 1.5
+  maxTentacleDrift: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2870,12 +2872,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  moveForceModifier: 100
-  pullForceModifier: 1200
+  moveForceModifier: 25
+  pullForceModifier: 600
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
-  nonGrabbedColor: {r: 1, g: 1, b: 1, a: 1}
+  releasedColor: {r: 1, g: 1, b: 1, a: 1}
+  maxTentacleStretch: 1.5
+  maxTentacleDrift: 1
 --- !u!114 &11480166
 MonoBehaviour:
   m_ObjectHideFlags: 1
