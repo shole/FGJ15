@@ -6,20 +6,18 @@ public class TouchInputReader : PhotonBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        screenCenter.Set(Screen.width, Screen.height);
-        screenCenter /= 2f;
         if (photonView.isMine)
         {
-            FindObjectOfType<Text>().text = "starting..";
+            // FindObjectOfType<Text>().text = "starting..";
         }
+
+        virtualpad = new Rect(Screen.width / 2f, 0, Screen.width / 2f, Screen.height);
 	}
+
+    Rect virtualpad;
 
     public float lastX, lastY;
     public bool unhandledDoubleTap = false;
-    private Vector2 screenCenter = new Vector2();
-
-    private float doubleTapCooldownSecs = 0.5f;
-    private float doubleTapCDCounter = 0;
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,43 +26,45 @@ public class TouchInputReader : PhotonBehaviour {
             return;
         }
 
-        doubleTapCDCounter += Time.deltaTime;
-
-
+        bool touchedPad = false;
 
         for(int i=0; i < Input.touchCount; i++)
         {
             Touch t = Input.GetTouch(i);
-            
-            if (t.tapCount > 1)
-            {
-                if (doubleTapCDCounter > doubleTapCooldownSecs)
-                {
-                    RPC(DoubleTap, PhotonTargets.MasterClient);
-                    doubleTapCDCounter = 0;
-                }
-            }
-            else
-            {
-                // just use as moving
-                lastX = (t.position.x - screenCenter.x) / screenCenter.x;
-                lastY = (t.position.y - screenCenter.y) / screenCenter.y;
 
-                // Debug.Log("read " + CoordsToString());
-                FindObjectOfType<Text>().text = CoordsToString();
+            if (!virtualpad.Contains(t.position))
+            {
+                continue;
             }
+
+            Vector2 screenCenter = virtualpad.center;
+            
+            // just use as moving
+            lastX = (t.position.x - screenCenter.x) / screenCenter.x;
+            lastY = (t.position.y - screenCenter.y) / screenCenter.y;
+
+            touchedPad = true;
+
+            // Debug.Log("read " + CoordsToString());
+            FindObjectOfType<Text>().text = CoordsToString();
+            
         }
-        if (Input.touchCount == 0)
+        if (!touchedPad)
         {
             lastX = 0;
             lastY = 0;
         }
 	}
 
+    public void DoDoubleTap()
+    {
+        RPC(DoubleTap, PhotonTargets.MasterClient);
+    }
+
     [RPC]
     public void DoubleTap()
     {
-        Debug.Log("doubletapped!");
+        // Debug.Log("doubletapped!");
         unhandledDoubleTap = true;
     }
 

@@ -96,6 +96,7 @@ public class CubeMover : MonoBehaviour {
 
     private void Grab(bool status)
     {
+        // Debug.Log("grabbing: " + status);
         rigidbody.isKinematic = status;
         UpdateNumberColor();
 
@@ -114,6 +115,13 @@ public class CubeMover : MonoBehaviour {
     {
         if (input == null)
         {
+            return;
+        }
+
+        if (input.unhandledDoubleTap)
+        {
+            input.unhandledDoubleTap = false;
+            Grab(!IsGrabbed());
             return;
         }
 
@@ -143,11 +151,7 @@ public class CubeMover : MonoBehaviour {
             //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
         }
 
-        if (input.unhandledDoubleTap)
-        {
-            input.unhandledDoubleTap = false;
-            Grab(!IsGrabbed());
-        }
+        
     }
 
     private bool FetchStartAndEndParts()

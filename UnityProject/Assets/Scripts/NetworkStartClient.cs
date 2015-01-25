@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class NetworkStartClient : MonoBehaviour {
     public GameObject inputPrefab;
     public Text statusText;
+    public GameObject virtualPad;
 
     void Start()
     {
@@ -53,6 +54,8 @@ public class NetworkStartClient : MonoBehaviour {
             if (GUI.Button(new Rect(100, height + (height * 1.2f * i), width, height), "Join " + roomsList[i].name))
             {
                 PhotonNetwork.JoinRoom(roomsList[i].name);
+                virtualPad.SetActive(true);
+                statusText.enabled = false;
             }
         }
     }
