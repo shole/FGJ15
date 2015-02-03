@@ -72,5 +72,6 @@ public class NetworkStartClient : MonoBehaviour {
     void OnMasterClientSwitched()
     {
         Application.Quit();
+        //Application.LoadLevel(Application.loadedLevelName);
     }
 }

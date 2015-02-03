@@ -23,9 +23,15 @@ public class AlwaysFaceGameplayOrigin : MonoBehaviour
 	void Update () {
         //Vector3 pos = transform.position;
         //transform.rotation = Quaternion.LookRotation((GameplayOrigin.position - transform.position).normalized);
-        transform.rotation = Quaternion.LookRotation((GameplayOrigin.position - parentbody.position).normalized);
+        Vector3 directionvector = GameplayOrigin.position - parentbody.position;
+        directionvector.y = 0f;
+        transform.rotation = Quaternion.LookRotation(directionvector);
+        transform.Rotate(Vector3.right, 77f);
         
-        transform.rotation.SetAxisAngle(Vector3.right, 22f);
+        //transform.rotation.SetAxisAngle(Vector3.right, 22f);
+        //Vector3 angles = transform.rotation.eulerAngles;
+        //transform.rotation.SetEulerAngles(angles.x, 22f, angles.z);
+        
         //transform.LookAt(GameplayOrigin.position);
 	}
 }
