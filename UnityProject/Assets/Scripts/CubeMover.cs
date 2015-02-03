@@ -143,13 +143,8 @@ public class CubeMover : MonoBehaviour
             return;
         }
 
-        if (input.unhandledDoubleTap)
-        {
-            input.unhandledDoubleTap = false;
-            Grab(!IsGrabbed());
-            return;
-        }
-
+        Grab(input.grabstate);
+        
         if (input.lastX == 0 && input.lastY == 0)
         {
             playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.zero, 0.1f);

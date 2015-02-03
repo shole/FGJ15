@@ -17,10 +17,9 @@ public class TouchInputReader : PhotonBehaviour {
     Rect virtualpad;
 
     public float lastX, lastY;
-    public bool unhandledDoubleTap = false;
 
-    private float doubleTapCooldownSecs = 0.5f;
-    private float doubleTapCDCounter = 0;
+    public bool grabstate = false;
+
 
 	// Update is called once per frame
 	void Update () {
@@ -29,9 +28,9 @@ public class TouchInputReader : PhotonBehaviour {
             return;
         }
 
-        doubleTapCDCounter += Time.deltaTime;
-
         bool touchedPad = false;
+
+        grabstate = false;
 
         for(int i=0; i < Input.touchCount; i++)
         {
@@ -39,17 +38,9 @@ public class TouchInputReader : PhotonBehaviour {
 
             if (!virtualpad.Contains(t.position))
             {
-                if (t.tapCount > 1)
-                {
-                    if (doubleTapCDCounter > doubleTapCooldownSecs)
-                    {
-                        RPC(DoubleTap, PhotonTargets.MasterClient);
-                        doubleTapCDCounter = 0;
-                    }
-                }
+                grabstate = true;
                 continue;
             }
-
 
             Vector2 screenCenter = virtualpad.center;
             
@@ -70,31 +61,22 @@ public class TouchInputReader : PhotonBehaviour {
         }
 	}
 
-    public void DoDoubleTap()
-    {
-        RPC(DoubleTap, PhotonTargets.MasterClient);
-    }
-
-    [RPC]
-    public void DoubleTap()
-    {
-        Debug.Log("doubletapped!");
-        unhandledDoubleTap = true;
-    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
+            stream.SendNext(grabstate);
             stream.SendNext(lastX);
             stream.SendNext(lastY);
-             Debug.Log("sent " + CoordsToString());
+            //Debug.Log("sent " + CoordsToString());
         }
         else
         {
+            grabstate = (bool)stream.ReceiveNext();
             lastX = (float)stream.ReceiveNext();
             lastY = (float)stream.ReceiveNext();
-            Debug.Log("received" + CoordsToString());
+            //Debug.Log("received" + CoordsToString());
         }
     }
 

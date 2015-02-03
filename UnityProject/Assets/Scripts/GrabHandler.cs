@@ -23,6 +23,6 @@ public class GrabHandler : MonoBehaviour {
     public void Grab()
     {
         // Debug.Log("grabbing");
-        inputHandler.DoDoubleTap();
+        //inputHandler.DoDoubleTap();
     }
 }
