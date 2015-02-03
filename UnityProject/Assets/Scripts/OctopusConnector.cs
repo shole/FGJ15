@@ -43,6 +43,15 @@ public class OctopusConnector : PhotonBehaviour {
                 GameObject startPos = GameObject.Find("OctopusStartingPos");
                 GameObject octopus = (GameObject)Instantiate(octopusPrefab, startPos.transform.position, Quaternion.identity);
 
+                Vector3 randomcolor=new Vector3(Random.value,Random.value,Random.value);
+                 
+                // saturrate
+                float mincol=Mathf.Min(randomcolor.x,randomcolor.y,randomcolor.z);
+                randomcolor-=Vector3.one*mincol;
+                randomcolor=randomcolor.normalized;
+
+                octopus.transform.FindChild("octopuss").GetComponent<SkinnedMeshRenderer>().material.color = new Color(randomcolor.x, randomcolor.y, randomcolor.z);
+
                 CubeMover mover = octopus.GetComponentInChildren<CubeMover>();
                 mover.SetInput(touchInputReader);
             }
