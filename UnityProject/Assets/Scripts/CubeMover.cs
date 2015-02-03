@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CubeMover : MonoBehaviour {
+public class CubeMover : MonoBehaviour
+{
     public TouchInputReader input;
     public float moveForceModifier = 15f;
     public float pullForceModifier = 100f;
@@ -25,6 +26,8 @@ public class CubeMover : MonoBehaviour {
 
     private Vector3 grabbingPos;
 
+    public int prevPlayerID = -2;
+
     void Awake()
     {
         playerIndicator = (GameObject)Instantiate(playerIndicatorPrefab);
@@ -41,9 +44,7 @@ public class CubeMover : MonoBehaviour {
     {
         input = reader;
         reachTarget = playerDirection.FindChild("ReachTarget");
-        Debug.Log("playerid " + input.photonView.owner.ID);
-        playerIndicator.transform.FindChild("playerno").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
-        playerIndicator.transform.FindChild("playernoshadow").gameObject.GetComponent<TextMesh>().text = "" + input.photonView.owner.ID;
+        UpdatePlayerID();
     }
 
     public bool HasInput()
@@ -63,12 +64,35 @@ public class CubeMover : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	//void Update () {
-    void FixedUpdate () {
+    // Update is called once per frame
+    //void Update () {
+    void FixedUpdate()
+    { // fixedupdate is consistency magic for physics
         HandleAutomaticRelease();
         HandleInput();
-	}
+        UpdatePlayerID();
+    }
+
+    private void UpdatePlayerID()
+    {
+        int currPlayerID = -2; // -2 if we have no input object
+        if (HasInput())
+        {
+            currPlayerID=input.photonView.owner.ID;
+        }
+        if (currPlayerID != prevPlayerID)
+        {
+            prevPlayerID = currPlayerID;
+            Debug.Log("playerid " + currPlayerID);
+            string printid = "";
+            if (currPlayerID > 0) // only show player number if we have a player (-1 is player missing)
+            {
+                printid = printid + currPlayerID;
+            }
+            playerIndicator.transform.FindChild("playerno").gameObject.GetComponent<TextMesh>().text = "" + printid;
+            playerIndicator.transform.FindChild("playernoshadow").gameObject.GetComponent<TextMesh>().text = "" + printid;
+        }
+    }
 
     private void HandleAutomaticRelease()
     {
@@ -97,7 +121,7 @@ public class CubeMover : MonoBehaviour {
 
     private void Grab(bool status)
     {
-        // Debug.Log("grabbing: " + status);
+        Debug.Log("grabbing: " + status);
         rigidbody.isKinematic = status;
         UpdateNumberColor();
 
@@ -128,10 +152,15 @@ public class CubeMover : MonoBehaviour {
 
         if (input.lastX == 0 && input.lastY == 0)
         {
+            playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.zero, 0.1f);
             return;
         }
-        playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
-
+        else
+        {
+            playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.one, 0.25f);
+            playerDirection.localRotation = Quaternion.Lerp(playerDirection.localRotation, Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward), 0.5f);
+            //playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
+        }
         if (IsGrabbed())
         {
             // grabbing is on, and user is giving input, so cause a force
@@ -152,7 +181,7 @@ public class CubeMover : MonoBehaviour {
             //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
         }
 
-        
+
     }
 
     private bool FetchStartAndEndParts()

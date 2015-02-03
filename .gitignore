@@ -35,5 +35,6 @@ Thumbs.db
 uEcho generated
 ===============
 .uEcho
-UnityProject/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
-UnityProject/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
+
+UnityVS.VersionSpecific.dll
+UnityVS.VersionSpecific.dll.meta
