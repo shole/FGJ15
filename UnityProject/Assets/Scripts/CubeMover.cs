@@ -64,7 +64,8 @@ public class CubeMover : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
+    void FixedUpdate () {
         HandleAutomaticRelease();
         HandleInput();
 	}
@@ -140,14 +141,14 @@ public class CubeMover : MonoBehaviour {
             {
                 Vector3 direction = endObject.position - beginObject.position;
 
-                beginObject.AddForce(direction * pullForceModifier);
+                beginObject.AddForce(direction * pullForceModifier * Time.deltaTime * 60);
             }
         }
         else
         {
             // just move the tentacle
 
-            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier);
+            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier *Time.deltaTime*60);
             //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
         }
 
