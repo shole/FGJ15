@@ -18,13 +18,18 @@ public class TouchInputReader : PhotonBehaviour {
 
     public float lastX, lastY;
     public bool unhandledDoubleTap = false;
-	
+
+    private float doubleTapCooldownSecs = 0.5f;
+    private float doubleTapCDCounter = 0;
+
 	// Update is called once per frame
 	void Update () {
         if (!photonView.isMine)
         {
             return;
         }
+
+        doubleTapCDCounter += Time.deltaTime;
 
         bool touchedPad = false;
 
@@ -34,8 +39,17 @@ public class TouchInputReader : PhotonBehaviour {
 
             if (!virtualpad.Contains(t.position))
             {
+                if (t.tapCount > 1)
+                {
+                    if (doubleTapCDCounter > doubleTapCooldownSecs)
+                    {
+                        RPC(DoubleTap, PhotonTargets.MasterClient);
+                        doubleTapCDCounter = 0;
+                    }
+                }
                 continue;
             }
+
 
             Vector2 screenCenter = virtualpad.center;
             
@@ -45,7 +59,7 @@ public class TouchInputReader : PhotonBehaviour {
 
             touchedPad = true;
 
-            // Debug.Log("read " + CoordsToString());
+            Debug.Log("read " + CoordsToString());
             FindObjectOfType<Text>().text = CoordsToString();
             
         }
@@ -64,7 +78,7 @@ public class TouchInputReader : PhotonBehaviour {
     [RPC]
     public void DoubleTap()
     {
-        // Debug.Log("doubletapped!");
+        Debug.Log("doubletapped!");
         unhandledDoubleTap = true;
     }
 
@@ -74,13 +88,13 @@ public class TouchInputReader : PhotonBehaviour {
         {
             stream.SendNext(lastX);
             stream.SendNext(lastY);
-            // Debug.Log("sent " + CoordsToString());
+             Debug.Log("sent " + CoordsToString());
         }
         else
         {
             lastX = (float)stream.ReceiveNext();
             lastY = (float)stream.ReceiveNext();
-            // Debug.Log("received" + CoordsToString());
+            Debug.Log("received" + CoordsToString());
         }
     }
 
