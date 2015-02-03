@@ -26,7 +26,7 @@ public class AlwaysFaceGameplayOrigin : MonoBehaviour
         Vector3 directionvector = GameplayOrigin.position - parentbody.position;
         directionvector.y = 0f;
         transform.rotation = Quaternion.LookRotation(directionvector);
-        transform.Rotate(Vector3.right, 77f);
+        transform.Rotate(Vector3.right, 50f);
         
         //transform.rotation.SetAxisAngle(Vector3.right, 22f);
         //Vector3 angles = transform.rotation.eulerAngles;

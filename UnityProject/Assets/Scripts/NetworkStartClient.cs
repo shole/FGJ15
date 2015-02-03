@@ -51,7 +51,15 @@ public class NetworkStartClient : MonoBehaviour {
         {
             float width = Screen.width * 0.75f;
             float height = Screen.height * 0.1f;
-            if (GUI.Button(new Rect(100, height + (height * 1.2f * i), width, height), "Join " + roomsList[i].name))
+
+            /*
+            GUIStyle largeFont;
+            largeFont = new GUIStyle();
+            largeFont.fontSize = 32;
+            */
+            //if (GUI.Button(new Rect(100, height + (height * 1.2f * i), width, height), "Join " + roomsList[i].name, largeFont))
+            
+            if (GUI.Button(new Rect(100, height + (height * 1.2f * i), width, height), "<size=40>Join " + roomsList[i].name+"</size>"))
             {
                 PhotonNetwork.JoinRoom(roomsList[i].name);
                 virtualPad.SetActive(true);
