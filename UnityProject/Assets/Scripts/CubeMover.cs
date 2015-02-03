@@ -6,6 +6,7 @@ public class CubeMover : MonoBehaviour
     public TouchInputReader input;
     public float moveForceModifier = 15f;
     public float pullForceModifier = 100f;
+    public float punchForceModifier = 50f;
 
     public GameObject playerIndicatorPrefab;
     GameObject playerIndicator;
@@ -78,7 +79,7 @@ public class CubeMover : MonoBehaviour
         int currPlayerID = -2; // -2 if we have no input object
         if (HasInput())
         {
-            currPlayerID=input.photonView.owner.ID;
+            currPlayerID = input.photonView.owner.ID;
         }
         if (currPlayerID != prevPlayerID)
         {
@@ -121,7 +122,7 @@ public class CubeMover : MonoBehaviour
 
     private void Grab(bool status)
     {
-        Debug.Log("grabbing: " + status);
+        //Debug.Log("grabbing: " + status);
         rigidbody.isKinematic = status;
         UpdateNumberColor();
 
@@ -144,7 +145,7 @@ public class CubeMover : MonoBehaviour
         }
 
         Grab(input.grabstate);
-        
+
         if (input.lastX == 0 && input.lastY == 0)
         {
             playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.zero, 0.1f);
@@ -152,10 +153,19 @@ public class CubeMover : MonoBehaviour
         }
         else
         {
-            playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.one, 0.25f);
-            playerDirection.localRotation = Quaternion.Lerp(playerDirection.localRotation, Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward), 0.5f);
-            //playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
+            if (input.unhandledDoubleTap)
+            {
+                playerDirection.localScale = Vector3.one;
+                playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
+            }
+            else
+            {
+                playerDirection.localScale = Vector3.Lerp(playerDirection.localScale, Vector3.one, 0.25f);
+                playerDirection.localRotation = Quaternion.Lerp(playerDirection.localRotation, Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward), 0.5f);
+                //playerDirection.localRotation = Quaternion.AngleAxis(Mathf.Atan2(input.lastX, input.lastY) * 60, Vector3.forward);
+            }
         }
+
         if (IsGrabbed())
         {
             // grabbing is on, and user is giving input, so cause a force
@@ -170,10 +180,18 @@ public class CubeMover : MonoBehaviour
         }
         else
         {
-            // just move the tentacle
-
-            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier * Time.deltaTime * 60 * 2);
-            //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
+            if (input.unhandledDoubleTap)
+            {
+                input.unhandledDoubleTap = false;
+                Debug.Log("punch!");
+                rigidbody.AddForce((reachTarget.position - transform.position).normalized * punchForceModifier * Time.deltaTime * 60 * 2, ForceMode.Impulse);
+            }
+            else
+            {
+                // just move the tentacle
+                rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier * Time.deltaTime * 60 * 2);
+                //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
+            }
         }
 
 

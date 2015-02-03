@@ -413,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &82327965
 Transform:
   m_ObjectHideFlags: 0
@@ -5172,6 +5172,7 @@ MonoBehaviour:
   input: {fileID: 0}
   moveForceModifier: 25
   pullForceModifier: 600
+  punchForceModifier: 10
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -7347,7 +7348,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 44f858b7ff2e68d4ba788c318c960e19, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16050,6 +16051,7 @@ MonoBehaviour:
   input: {fileID: 0}
   moveForceModifier: 25
   pullForceModifier: 600
+  punchForceModifier: 10
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}

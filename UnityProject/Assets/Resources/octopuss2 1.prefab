@@ -2854,6 +2854,7 @@ MonoBehaviour:
   input: {fileID: 0}
   moveForceModifier: 25
   pullForceModifier: 600
+  punchForceModifier: 10
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -2875,6 +2876,7 @@ MonoBehaviour:
   input: {fileID: 0}
   moveForceModifier: 25
   pullForceModifier: 600
+  punchForceModifier: 10
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
