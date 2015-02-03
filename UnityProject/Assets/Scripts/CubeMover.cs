@@ -141,14 +141,14 @@ public class CubeMover : MonoBehaviour {
             {
                 Vector3 direction = endObject.position - beginObject.position;
 
-                beginObject.AddForce(direction * pullForceModifier * Time.deltaTime * 60);
+                beginObject.AddForce(direction * pullForceModifier * Time.deltaTime * 60 * 2);
             }
         }
         else
         {
             // just move the tentacle
 
-            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier *Time.deltaTime*60);
+            rigidbody.AddForce((reachTarget.position - transform.position).normalized * moveForceModifier * Time.deltaTime * 60 * 2);
             //rigidbody.AddForce(input.lastX * moveForceModifier, 0, input.lastY * moveForceModifier);
         }
 
