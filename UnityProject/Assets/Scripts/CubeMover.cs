@@ -8,6 +8,13 @@ public class CubeMover : MonoBehaviour
     public float pullForceModifier = 100f;
     public float punchForceModifier = 50f;
 
+    public AudioClip grabSound;
+    public AudioClip ungrabSound;
+    public AudioClip punchSound;
+    private AudioSource sound_grab;
+    private AudioSource sound_ungrab;
+    private AudioSource sound_punch;
+    
     public GameObject playerIndicatorPrefab;
     GameObject playerIndicator;
     Transform playerDirection;
@@ -31,6 +38,19 @@ public class CubeMover : MonoBehaviour
 
     void Awake()
     {
+        sound_grab=gameObject.AddComponent<AudioSource>();
+        sound_grab.playOnAwake = false;
+        sound_grab.maxDistance = 1000f;
+        sound_grab.clip = grabSound;
+        sound_ungrab = gameObject.AddComponent<AudioSource>();
+        sound_ungrab.playOnAwake = false;
+        sound_ungrab.maxDistance = 1000f;
+        sound_ungrab.clip = ungrabSound;
+        sound_punch = gameObject.AddComponent<AudioSource>();
+        sound_punch.playOnAwake = false;
+        sound_punch.maxDistance = 1000f;
+        sound_punch.clip = punchSound;
+
         playerIndicator = (GameObject)Instantiate(playerIndicatorPrefab);
         playerIndicator.transform.parent = transform;
         playerIndicator.transform.localPosition = Vector3.zero;
@@ -122,6 +142,18 @@ public class CubeMover : MonoBehaviour
 
     private void Grab(bool status)
     {
+
+        if (rigidbody.isKinematic != status)
+        {
+            if (status)
+            {
+                sound_grab.Play();
+            }
+            else
+            {
+                sound_ungrab.Play();
+            }
+        }
         //Debug.Log("grabbing: " + status);
         rigidbody.isKinematic = status;
         UpdateNumberColor();
@@ -185,6 +217,7 @@ public class CubeMover : MonoBehaviour
                 input.unhandledDoubleTap = false;
                 Debug.Log("punch!");
                 rigidbody.AddForce((reachTarget.position - transform.position).normalized * punchForceModifier * Time.deltaTime * 60 * 2, ForceMode.Impulse);
+                sound_punch.Play();
             }
             else
             {

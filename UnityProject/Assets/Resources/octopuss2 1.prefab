@@ -2855,6 +2855,9 @@ MonoBehaviour:
   moveForceModifier: 50
   pullForceModifier: 600
   punchForceModifier: 10
+  grabSound: {fileID: 8300000, guid: 35e427c4025ac33449a229167d7e1983, type: 3}
+  ungrabSound: {fileID: 8300000, guid: 86c1e4540b9b11d44b541ea6e35bfc17, type: 3}
+  punchSound: {fileID: 8300000, guid: ee3902263478222408735cde362f5f71, type: 3}
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -2877,6 +2880,9 @@ MonoBehaviour:
   moveForceModifier: 50
   pullForceModifier: 600
   punchForceModifier: 10
+  grabSound: {fileID: 8300000, guid: 35e427c4025ac33449a229167d7e1983, type: 3}
+  ungrabSound: {fileID: 8300000, guid: 86c1e4540b9b11d44b541ea6e35bfc17, type: 3}
+  punchSound: {fileID: 8300000, guid: ee3902263478222408735cde362f5f71, type: 3}
   playerIndicatorPrefab: {fileID: 197390, guid: 50b7eb291182a444aa35ae60d73f25a0,
     type: 2}
   grabbedColor: {r: 0, g: 1, b: 0, a: 1}
