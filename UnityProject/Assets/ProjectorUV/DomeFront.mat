@@ -55,7 +55,15 @@ Material:
           m_Texture: {fileID: 2800000, guid: 983082ec4d2661547987f41be0db6f03, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats:
+      data:
+        first:
+          name: _node138
+        second: 3
+      data:
+        first:
+          name: _downscaleFactor
+        second: 0
     m_Colors:
       data:
         first:
