@@ -14,7 +14,7 @@ public class CubeMover : MonoBehaviour
     private AudioSource sound_grab;
     private AudioSource sound_ungrab;
     private AudioSource sound_punch;
-    
+
     public GameObject playerIndicatorPrefab;
     GameObject playerIndicator;
     Transform playerDirection;
@@ -36,9 +36,12 @@ public class CubeMover : MonoBehaviour
 
     public int prevPlayerID = -2;
 
+    private float loseGripPenalty = 2f;
+    private float lostGripTime = 0f;
+
     void Awake()
     {
-        sound_grab=gameObject.AddComponent<AudioSource>();
+        sound_grab = gameObject.AddComponent<AudioSource>();
         sound_grab.playOnAwake = false;
         sound_grab.maxDistance = 1000f;
         sound_grab.clip = grabSound;
@@ -115,6 +118,31 @@ public class CubeMover : MonoBehaviour
         }
     }
 
+    private bool TentacleLenghtTooLong()
+    {
+        // if tentacle has stretched too long, release grab
+        float currentLength = GetTentacleLength();
+        if (currentLength > normalTentacleLength * maxTentacleStretch)
+        {
+            Debug.Log("stretched too long, releasing grab");
+            lostGripTime = Time.time;
+            return true;
+        }
+
+        if (IsGrabbed())
+        {
+            // if tentacle has moved too far from the original grabbing pos, release grab
+            float driftAmount = (transform.position - grabbingPos).magnitude;
+            if (driftAmount > normalTentacleLength * maxTentacleDrift)
+            {
+                Debug.Log("drifted too far, releasing grab");
+                lostGripTime = Time.time;
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void HandleAutomaticRelease()
     {
         if (!IsGrabbed())
@@ -122,27 +150,18 @@ public class CubeMover : MonoBehaviour
             return;
         }
 
-        // if tentacle has stretched too long, release grab
-        float currentLength = GetTentacleLength();
-        if (currentLength > normalTentacleLength * maxTentacleStretch)
+        if (TentacleLenghtTooLong())
         {
-            Grab(false);
-            Debug.Log("stretched too long, releasing grab");
-            return;
-        }
-
-        // if tentacle has moved too far from the original grabbing pos, release grab
-        float driftAmount = (transform.position - grabbingPos).magnitude;
-        if (driftAmount > normalTentacleLength * maxTentacleDrift)
-        {
-            Debug.Log("drifted too far, releasing grab");
             Grab(false);
         }
     }
 
     private void Grab(bool status)
     {
-
+        if (status && lostGripTime > Time.time - loseGripPenalty) // if you've lost your grip and you're in the penalty box, no gripping for you!
+        {
+            return;
+        }
         if (rigidbody.isKinematic != status)
         {
             if (status)
@@ -176,7 +195,10 @@ public class CubeMover : MonoBehaviour
             return;
         }
 
-        Grab(input.grabstate);
+        if (!TentacleLenghtTooLong() || !input.grabstate)
+        {
+            Grab(input.grabstate);
+        }
 
         if (input.lastX == 0 && input.lastY == 0)
         {
