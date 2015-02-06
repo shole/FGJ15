@@ -1,0 +1,1 @@
+tentaquarium_server -announcement="Join the game at   T.WANHA.COM" -nomusic 
