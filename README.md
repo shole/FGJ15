@@ -14,7 +14,7 @@ No promises
 
 #Building the gameplay / projection server
 Open server.unity.
-Create and apply the target distortion maps to the front & back distortion surface objects ( **DomeRendering / Mesh creating warped fisheye / front** & **back** ).
+Create and apply the target distortion maps to the front & back distortion surface materials ( **Assets\ProjectorUV\DomeFront** & **DomeBack** ).
 See instructions for capturing UV maps below.
 Change the server view settings, hit build.
 
@@ -68,7 +68,7 @@ Generate Mip Maps: off
 Format: RGBA32 or Truecolor        <- this one is especially important if you forget to touch the others
 
 ###Applying correct shader
-Apply shader to **DomeFront** and **DomeBack** materials under **Assets/ProjectorUV**
+Apply shader to **DomeFront** and **DomeBack** materials under **Assets\ProjectorUV**
 * for 8bit standard UVmap: **dist.shader** or **dist_shadowmask.shader**
 * for 16bit separated UVmaps: **distortion_16bit.shader**
 * for 16bit combined UVmap: **distortion_16bit_4channel.shader**
