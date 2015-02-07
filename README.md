@@ -1,6 +1,14 @@
 #Tentaquarium
 This is the primary repository for the Global/Finnnish Gamejam 2015 entry
 
+#Gameplay
+* After the server is running, players download and launch their mobile controller apps, which spawn an octopus.
+* One player controls one tentacle of the octopus, indicated with with player number matching their app.
+* The player *moves the tentacle* around with the directional pad. The direction of movement is relative to the angle of the player number.
+* The player can *grab* by *holding down* the tentacle button and *pull* by holding down grab and using the directional pad.
+* The player can also *punch* by doubletapping the directional pad while not grabbing.
+* The objective of the game is to stay on top and have fun punching other players off the top. There is no win or lose state.
+
 #Requirements
 * Unity 4.x Pro - Pro is required for the used render-to-texture and mobile export
 * Android SDK - if you wish to export the android controller
