@@ -1,5 +1,7 @@
 #Tentaquarium
-This is the primary repository for the Global/Finnnish Gamejam 2015 entry
+This is the primary repository for the Global/Finnish Gamejam 2015 entry
+<br/>http://youtu.be/zjk1dtibbds
+<br/>http://globalgamejam.org/2015/games/tentaquarium
 
 #Gameplay
 * After the server is running, players download and launch their mobile controller apps, which spawn an octopus.
@@ -89,11 +91,17 @@ Disable music, leaving only underwater ambient and player sounds
 Display a message at rim of the aquarium.
 This is especially useful for sharing the URL for the mobile client.
 
+#Credits
+The full Gamejam team:
+* Paavo Happonen
+* Juho Hartikainen
+* Mikko Immonen
+* Jukka Lankinen
+* Ilja Levonen
+* Janne Räsänen
 <br/>
 <br/>
 <br/>
 <br/>
 <br/>
-
-
 For any questions or comments, you can reach me at pahappo@gmail.com
