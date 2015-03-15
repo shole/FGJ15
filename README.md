@@ -1,7 +1,14 @@
 #Tentaquarium
 This is the primary repository for the Global/Finnish Gamejam 2015 entry
-<br/>http://youtu.be/zjk1dtibbds
-<br/>http://globalgamejam.org/2015/games/tentaquarium
+<br/>
+http://youtu.be/zjk1dtibbds
+<br/>
+http://globalgamejam.org/2015/games/tentaquarium
+<br/>
+<br/>
+Binary builds for desktop play can be downloaded from my personal website:
+<br/>
+http://teatimeresearch.com/
 
 #Gameplay
 * After the server is running, players download and launch their mobile controller apps, which spawn an octopus.
