@@ -6,9 +6,15 @@ http://youtu.be/zjk1dtibbds
 http://globalgamejam.org/2015/games/tentaquarium
 <br/>
 <br/>
-Binary builds for desktop play can be downloaded from my personal website:
+Some design commentary and binaries for desktop play can be found on my personal website:
 <br/>
 http://teatimeresearch.com/
+<br/>
+Desktop Server: http://teatimeresearch.com/lab/files/Tentaquarium_server.zip
+<br/>
+Android Controller: http://t.wanha.com ( this is a convenience alias for http://teatimeresearch.com/lab/files/Tentaquarium.apk )
+<br/>
+
 
 #Gameplay
 * After the server is running, players download and launch their mobile controller apps, which spawn an octopus.
