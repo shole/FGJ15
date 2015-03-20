@@ -6,13 +6,20 @@ http://youtu.be/zjk1dtibbds
 http://globalgamejam.org/2015/games/tentaquarium
 <br/>
 <br/>
+Server: ( bottom-up view for play on regular desktops )
+<br/>
+http://teatimeresearch.com/lab/files/Tentaquarium_server.zip
+<br/>
+Android Controller:
+<br/>
+http://t.wanha.com
+<br/>
+( this is a convenience alias for http://teatimeresearch.com/lab/files/Tentaquarium.apk )
+<br/>
+<br/>
 Some design commentary and binaries for desktop play can be found on my personal website:
 <br/>
 http://teatimeresearch.com/
-<br/>
-Desktop Server: http://teatimeresearch.com/lab/files/Tentaquarium_server.zip
-<br/>
-Android Controller: http://t.wanha.com ( this is a convenience alias for http://teatimeresearch.com/lab/files/Tentaquarium.apk )
 <br/>
 
 
